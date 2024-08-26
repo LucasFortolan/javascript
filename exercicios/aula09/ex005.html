@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiros Passos com DOM</title>
+    <style>
+        body{
+            background: rgb(68,125,199);
+            color: white;
+            font: normal 18pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iniciando estudos DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar o <strong>DOM</strong> em JavaScript.</p>
+    <div id = 'msg'>Clique em mim</div>
+    <div name = 'ano'>2024</div>
+    <div class = 'mes'>Setembro</div>
+    <div id = 'dia'>26</div>
+    <script>
+        // Selecionado:
+            // por Marca:
+        // corpo passa a representar o window.document.body
+        var corpo = window.document.body
+        //      não precisa usar o window                 [indice de posição do p, ou seja, seleciona o primeiro]
+        var p1 = window.document.getElementsByTagName('p')[1] 
+        // Mostra apenas a escrita
+        window.document.write('Esta escrito assim: ' + p1.innerText + '\n')
+        // Mostra com a formação, TAG e filhas
+        window.document.write('Esta escrito assim: ' + p1.innerHTML)
+        corpo.style.background = 'black' // muda o background para preto
+        p1.style.color = 'blue' // muda a cor do paragrafo 1 para azul
+        //window.alert(p1.innerHTML)
+        
+            // por ID:
+        // Selecionei a Div pelo ID
+        var d = window.document.getElementById('msg')
+        d.style.background = 'green'
+        d.innerText = 'Olá!'
+        // window.document.getElementById('msg').innerText = 'Olá!']
+
+            // por Name:
+        var e = window.document.getElementsByName('ano')[0]
+        e.innerText = '2025'
+
+            // por Class
+        var f = window.document.getElementsByClassName('mes')[0]
+        f.innerText = 'Outubro'
+
+            // por Selector
+        // querySelector()
+        // querySelectorAll()
+        // class é .    id é #
+        var g = window.document.querySelector('div#dia')
+        g.style.background = 'red'
+
+        
+    </script>
+</body>
+</html>
