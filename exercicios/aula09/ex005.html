@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Primeiros Passos com DOM</title>
     <style>
-        body{
-            background: rgb(68,125,199);
-            color: white;
-            font: normal 18pt Arial;
+        /* Define o estilo básico da página */
+        body {
+            background: rgb(68, 125, 199); /* Cor de fundo azul */
+            color: white; /* Texto branco */
+            font: normal 18pt Arial; /* Fonte padrão */
         }
     </style>
 </head>
@@ -16,48 +17,47 @@
     <h1>Iniciando estudos DOM</h1>
     <p>Aqui vai o resultado</p>
     <p>Aprendendo a usar o <strong>DOM</strong> em JavaScript.</p>
-    <div id = 'msg'>Clique em mim</div>
-    <div name = 'ano'>2024</div>
-    <div class = 'mes'>Setembro</div>
-    <div id = 'dia'>26</div>
+    
+    <!-- Várias divs para manipulação pelo JavaScript -->
+    <div id='msg'>Clique em mim</div>
+    <div name='ano'>2024</div>
+    <div class='mes'>Setembro</div>
+    <div id='dia'>26</div>
+    
     <script>
-        // Selecionado:
-            // por Marca:
-        // corpo passa a representar o window.document.body
-        var corpo = window.document.body
-        //      não precisa usar o window                 [indice de posição do p, ou seja, seleciona o primeiro]
-        var p1 = window.document.getElementsByTagName('p')[1] 
-        // Mostra apenas a escrita
-        window.document.write('Esta escrito assim: ' + p1.innerText + '\n')
-        // Mostra com a formação, TAG e filhas
-        window.document.write('Esta escrito assim: ' + p1.innerHTML)
-        corpo.style.background = 'black' // muda o background para preto
-        p1.style.color = 'blue' // muda a cor do paragrafo 1 para azul
-        //window.alert(p1.innerHTML)
-        
-            // por ID:
-        // Selecionei a Div pelo ID
-        var d = window.document.getElementById('msg')
-        d.style.background = 'green'
-        d.innerText = 'Olá!'
-        // window.document.getElementById('msg').innerText = 'Olá!']
+        // Seleção de elementos por diferentes métodos:
+            // Selecionando o corpo do documento pela tag 'body'
+        var corpo = window.document.body;
+            // Seleciona o segundo parágrafo ('p') da página pelo índice [1]
+        var p1 = window.document.getElementsByTagName('p')[1];
+            // Escreve no documento o texto contido no segundo parágrafo
+        window.document.write('Está escrito assim: ' + p1.innerText + '\n');
+        window.document.write('Está escrito assim: ' + p1.innerHTML);
+            // Altera a cor de fundo do corpo do documento para preto
+        corpo.style.background = 'black';
+            // Altera a cor do texto do segundo parágrafo para azul
+        p1.style.color = 'blue';
 
-            // por Name:
-        var e = window.document.getElementsByName('ano')[0]
-        e.innerText = '2025'
+        // Seleção por ID:
+            // Seleciona a div com ID 'msg' e altera o seu estilo e texto
+        var d = window.document.getElementById('msg');
+        d.style.background = 'green'; // Altera o fundo da div para verde
+        d.innerText = 'Olá!'; // Altera o texto da div para "Olá!"
 
-            // por Class
-        var f = window.document.getElementsByClassName('mes')[0]
-        f.innerText = 'Outubro'
+        // Seleção por Name:
+            // Seleciona a div com o atributo name='ano' e altera o texto
+        var e = window.document.getElementsByName('ano')[0];
+        e.innerText = '2025'; // Atualiza o ano para 2025
 
-            // por Selector
-        // querySelector()
-        // querySelectorAll()
-        // class é .    id é #
-        var g = window.document.querySelector('div#dia')
-        g.style.background = 'red'
+        // Seleção por Class:
+            // Seleciona a div com a classe 'mes' e altera o texto
+        var f = window.document.getElementsByClassName('mes')[0];
+        f.innerText = 'Outubro'; // Atualiza o mês para Outubro
 
-        
+        // Seleção por Query Selector:
+            // Seleciona a div com ID 'dia' usando querySelector e altera o estilo
+        var g = window.document.querySelector('div#dia');
+        g.style.background = 'red'; // Altera o fundo da div para vermelho
     </script>
 </body>
 </html>

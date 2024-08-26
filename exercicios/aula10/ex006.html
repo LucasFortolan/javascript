@@ -5,45 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventos DOM</title>
     <style>
+        /* Estilizando a div com ID 'area' */
         div#area {
-            font: normal 20px Arial;
-            background: rgb(42, 139, 42);
-            color: white;
-            width: 200px;
-            height: 200px;
-            line-height: 200px;
-            text-align: center;
+            font: normal 20px Arial; /* Fonte Arial com tamanho 20px */
+            background: rgb(42, 139, 42); /* Cor de fundo verde */
+            color: white; /* Texto branco */
+            width: 200px; /* Largura de 200px */
+            height: 200px; /* Altura de 200px */
+            line-height: 200px; /* Alinha o texto verticalmente ao centro */
+            text-align: center; /* Alinha o texto horizontalmente ao centro */
         }
-
     </style>
 </head>
 <body>
+    <!-- Div que vai responder a interações do usuário -->
     <div id="area">
         Interaja...
     </div>
 
     <script>
-        // existe getElemets, é necessario especificar o elemento
-        var a = window.document.getElementById('area')
-        // Serve para adicinar eventos no elemento id, substituindo:
-        // <div id="area" onclick="clicar()" onmouseenter="entrar()" 
-        // tornando HTML mais limpo
-        a.addEventListener('click', clicar)
-        a.addEventListener('mouseenter', entrar)
-        a.addEventListener('mouseout', sair)
-        function clicar(){
-            a.innerText = 'Clicou!'
-            a.style.background = 'red'
+        // Seleciona a div com ID 'area' e a armazena na variável 'a'
+        var a = window.document.getElementById('area');
+
+        // Adiciona eventos à div 'a' usando 'addEventListener'. 
+        // Isso mantém o HTML limpo, evitando a inclusão de eventos diretamente nos atributos da tag. 
+        // Por exemplo: <div id="area" onclick="clicar()" onmouseenter="entrar()"
+
+        // Adiciona um evento para quando: 
+        a.addEventListener('click', clicar); // a div for clicada
+        a.addEventListener('mouseenter', entrar); // mouse entrar na div
+        a.addEventListener('mouseout', sair); // mouse sair da div
+
+        // Função chamada quando o usuário clica na div
+        function clicar() {
+            a.innerText = 'Clicou!'; // Altera o texto da div para 'Clicou!'
+            a.style.background = 'red'; // Altera a cor de fundo para vermelho
         }
-        function entrar(){
-            a.innerText = 'Entrou!'
-            a.style.background = 'black'
-        }
-        function sair(){
-            a.innerText = 'Saiu!'
-            a.style.background = 'blue'
+        // Função chamada quando o mouse entra na div
+        function entrar() {
+            a.innerText = 'Entrou!';
+            a.style.background = 'black';
         }
 
+        // Função chamada quando o mouse sai da div
+        function sair() {
+            a.innerText = 'Saiu!';
+            a.style.background = 'blue';
+        }
     </script>
 
 </body>

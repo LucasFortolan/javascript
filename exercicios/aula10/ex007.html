@@ -5,34 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Somando Números</title>
     <style>
+        /* Estilo básico para o corpo da página */
         body {
-            font: normal 18pt Arial;
+            font: normal 18pt Arial; /* Define a fonte padrão como Arial com tamanho 18pt */
         }
+        /* Estilo para os inputs de número */
         input {
-            font: normal 18pt Arial;
-            width: 100px;
+            font: normal 18pt Arial; /* Define a fonte dos inputs */
+            width: 100px; /* Define a largura dos inputs */
         }
+        /* Estilo para a div de resultado */
         div#res {
-            margin-top: 20px
+            margin-top: 20px; /* Adiciona um espaço superior de 20px para a div de resultado */
         }
     </style>
 </head>
 <body>
     <h1>Somando Valores</h1>
+    
+    <!-- Campos de entrada para os números -->
     <input type="number" name="txtn1" id="txtn1">
     <input type="number" name="txtn2" id="txtn2">
+    
+    <!-- Botão para realizar a soma -->
     <input type="button" value="Somar" onclick="somar()">
+    
+    <!-- Div para exibir o resultado da soma -->
     <div id="res">Resultado: </div>
+    
     <script>
+        /* Função que realiza a soma dos valores */
         function somar() {
-            var tn1 = window.document.getElementById('txtn1')
-            var tn2 = window.document.querySelector('input#txtn2')
-            var res = window.document.getElementById('res')
-            var n1 = Number(tn1.value)
-            var n2 = Number(tn2.value)
-            var s = n1 + n2
-            // No JavaScript, as variáveis dentro de uma string são interpoladas apenas quando você usa template literals, que são delimitados por crases (``) em vez de aspas simples (') ou duplas (").
-            res.innerHTML = `A soma entre ${n1} e ${n2} é igual a <strong>${s}<strong>`
+            // Captura os elementos de entrada usando seus IDs
+            var tn1 = window.document.getElementById('txtn1');
+            var tn2 = window.document.querySelector('input#txtn2');
+            var res = window.document.getElementById('res');
+            
+            // Converte os valores de entrada de string para número
+            var n1 = Number(tn1.value);
+            var n2 = Number(tn2.value);
+            
+            // Realiza a soma dos dois números
+            var s = n1 + n2;
+            
+            /* 
+            Atualiza o conteúdo da div de resultado com a soma.
+            Usamos template literals (delimitados por crases ``) para interpolar as variáveis diretamente na string,  em vez de aspas simples (') ou duplas (").
+            */
+            res.innerHTML = `A soma entre ${n1} e ${n2} é igual a <strong>${s}</strong>`;
         }
     </script>
 </body>
