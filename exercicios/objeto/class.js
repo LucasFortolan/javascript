@@ -1,11 +1,11 @@
 // Definição da classe Pessoa
 class Pessoa {
-    // Construtor que inicializa as propriedades da classe
+    // Construtor que inicializa os atributos da classe
     constructor(nome, peso, sexo, altura) {
-        this.nome = nome;     // Propriedade 'nome'
-        this.peso = peso;     // Propriedade 'peso'
-        this.sexo = sexo;
-        this.altura = altura; // Propriedade 'altura'
+        this.nome = nome;     // atributos 'nome'
+        this.peso = peso;     // atributos 'peso'
+        this.sexo = sexo;     // atributos 'sexo'
+        this.altura = altura; // atributos 'altura'
     }
 
     // Método para engordar, que aumenta o peso da pessoa
