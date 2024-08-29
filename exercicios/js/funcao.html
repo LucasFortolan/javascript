@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Definição do tipo de documento HTML e idioma -->
+    <meta charset="UTF-8"> <!-- Especifica a codificação de caracteres para suportar acentuações e caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define a escala inicial para dispositivos móveis -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> <!-- Garante compatibilidade com versões mais antigas do Internet Explorer -->
+    <title>DETRAN</title> <!-- Título da página, que aparece na aba do navegador -->
+</head>
+<body>
+    <h1>Sistema de Multas</h1> <!-- Cabeçalho principal da página -->
+
+    <!-- Seção para entrada de dados e exibição do resultado -->
+    <div>
+        <!-- Campo de entrada para a velocidade do carro -->
+        Velocidade do carro: <input type="number" name="txtvel" id="txtvel">
+        <!-- Botão para verificar a velocidade -->
+        <input type="button" value="Verificar" onclick="calcular()">
+        <!-- Div onde será exibido o resultado -->
+        <div id="res"></div>
+    </div>
+
+    <script>
+        // Função que será executada ao clicar no botão "Verificar"
+        function calcular() {
+            // Seleciona o campo de entrada da velocidade usando o seletor CSS
+            var txtv = window.document.querySelector('input#txtvel')
+            // Seleciona a div onde o resultado será exibido
+            var res = window.document.querySelector('div#res')
+            // Converte o valor inserido no campo de texto para um número
+            var vel = Number(txtv.value)
+            // Exibe a velocidade atual digitada pelo usuário
+            res.innerHTML = `<p>Sua velocidade atual é de <strong>${vel} Km/h</strong></p>`
+            
+            // Verifica se a velocidade excede 60 Km/h
+            if (vel > 60) {
+                // Se exceder, exibe uma mensagem informando que o usuário foi multado
+                res.innerHTML += `<p>Você está <strong>MULTADO</strong> por excesso de velocidade!</p>`
+            }
+            // Exibe uma mensagem incentivando a direção segura
+            res.innerHTML += `<p>Dirija sempre com cinto de segurança!</p>`
+        }
+    </script>
+</body>
+</html>
