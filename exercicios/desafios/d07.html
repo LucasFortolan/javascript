@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Troco</title>
+</head>
+<body>
+    <h1>Conversor R$ para US$</h1>
+    <button onclick="botao()">Comprar Produto</button>
+    <p id="converter">Clique no botão para inicar</p>
+    <script>
+        // Obtendo os dados do usuario
+        let cotacao = window.prompt('Quanto está a cotação do dólar agora?')
+        function botao() {
+            let qtdReal = window.prompt('Quantos R$ você tem na carteira')
+            let qtdDolar = Number.parseFloat(qtdReal)/Number.parseFloat(cotacao)
+            // Float
+            cotacao = Number.parseFloat(cotacao)
+            qtdReal = Number.parseFloat(qtdReal)
+            qtdDolar = Number.parseFloat(qtdDolar)
+            // Definindo o formato da moeda
+            let cotacaoFormatado = cotacao.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
+            qtdRealFormatado = qtdReal.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
+            qtdDolarFormatado = cotacao.toLocaleString('en-US', {style: 'currency', currency: 'USD'})
+            // Comunicando o usuario
+            converter = window.document.getElementById('converter')
+            converter.innerHTML = `<p>Cotação do Dolar Agora: <strong>${cotacaoFormatado}</strong></p>`
+            converter.innerHTML += `<p>Valor na carteira: <strong>${qtdRealFormatado}</strong></p>`
+            converter.innerHTML += `<p>Você terá: <strong>${qtdDolarFormatado}</strong>!!</p>`
+        }
+    </script>
+</body>
+</html>

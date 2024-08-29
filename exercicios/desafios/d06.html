@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Troco</title>
+</head>
+<body>
+    <h1>Conversor de Temperaturas</h1>
+    <button onclick="botao()">Converter</button>
+    <p id="exibir">Clique no botão acima para iniciar.</p>
+    <script>
+        function botao() {
+            // Obtendo os dados do usuario
+            let celsius = window.prompt('Digite uma temperatura em ºC (Celsius)')
+            celsius = Number.parseFloat(celsius)
+            let kevin = celsius + 273.15
+            let fahrenheit = (celsius*(9/5)) + 32
+            // Comunicando o usuario
+            exibir = window.document.getElementById('exibir')
+            exibir.innerHTML = `<strong>A temperatura de ${celsius}ºC, corresponde a... </strong>`
+            exibir.innerHTML += `<p>${kevin.toFixed(2)}ºK (Kelvin)</p><p>${fahrenheit.toFixed(2)}ºF (Fahrenheit)</p>`
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Troco</title>
+</head>
+<body>
+    <h1>Antes e depois</h1>
+    <button onclick="botao()">Comprar Produto</button>
+    <script>
+        function botao() {
+            // Obtendo os dados do usuario
+            let produto = window.prompt('Que produto você está comprando?')
+            let preco = window.prompt(`Quanto custa ${produto} que você esta comprando?`)
+            let valorEntregue = window.prompt(`Qual foi o valor que deu para pagar: ${produto}`)
+            // String -> Numero Float
+            preco = Number.parseFloat(preco)
+            valorEntregue = Number.parseFloat(valorEntregue)
+
+            let troco = valorEntregue - preco
+            // Informando que o formato é BRL e irá fixar 2 casas decimais
+            precoFormatado = preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
+            valorEntregueFormatado = valorEntregue.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
+            trocoFortato = troco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
+            // Comunicando o usuario
+            window.alert(`Você comprou ${produto} que custou ${precoFormatado}.\nDeu ${valorEntregueFormatado} em dinheiro e vai receber ${trocoFortato} de troco. Volte Sempre!`)
+        }
+    </script>
+</body>
+</html>
