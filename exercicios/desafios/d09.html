@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajuste salarial</title>
+</head>
+<body>
+    <h1><strong>Reajuste salarial</strong></h1>
+    <button onclick = "reajusteSalario()">Reajustar Salário</button>
+    <h2 id="pessoaSalario"></h2>
+    <p id="funcReajuste">Clique no botão acima para iniciar.</p>
+    <script>
+        function reajusteSalario()
+        {
+            // Obter valor
+            var nome = window.prompt('Qual é o nome do funcionário?')
+            var salario = parseFloat(window.prompt(`Qual é o salario de ${nome}`))
+            var porcentagem = parseFloat(window.prompt(`O salário de ${nome} vai ser reajustado em qual porcetagem?`))
+            // Calculo
+                // ex.:         salario * (1 + 0,18)
+            var salarioReajuste = salario * (1 + porcentagem/100)
+                // ex.:                 salario * 0,18
+            var reajuste = salario * (porcentagem/100)
+            // R$
+            var salarioFormatado = salario.toLocaleString('pt-BR', {style:'currency', currency: 'BRL'})
+            var salarioReajusteFormatado = salarioReajuste.toLocaleString('pt-BR', {style:'currency', currency: 'BRL'})
+            var reajusteFormatado = reajuste.toLocaleString('pt-BR', {style:'currency', currency: 'BRL'})
+            // Exibir informação no HTML
+            titulo = document.getElementById('pessoaSalario')
+            titulo.innerHTML = `<strong>${nome} recebeu um aumento salario!</strong>`
+
+            exibir = document.getElementById('funcReajuste')
+            exibir.innerHTML = (`O salário atual era ${salarioFormatado}`)
+            exibir.innerHTML +=(`<p>Com um aumento de ${porcentagem}%, o salário vai aumentar ${reajusteFormatado} no próximo mês.</p>`)
+            exibir.innerHTML +=(`<p>E a partir dai, ${nome} vai passar a ganhar ${salarioReajusteFormatado}.</p>`)
+        }
+
+    </script>
+</body>
+</html>

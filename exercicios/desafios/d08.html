@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Desconto</title>
+</head>
+<body>
+    <h1><strong>Calcular Desconto</strong></h1>
+    <button onclick = "desconto()">Desconto de 10%</button>
+    <h2 id="produto"> </h2>
+    <p id="mostrarDesconto">Clique no botão acima para iniciar.</p>
+    <script>
+        function desconto()
+        {
+            // Obter valor
+            var produto = window.prompt('Qual é o produtuo que você esta comprando?')
+            var valor = parseFloat(window.prompt(`Qual é o preço de ${produto}`))
+            // Calculo
+            var produtoDesc = valor * 0.9
+            var desc = valor * 0.1
+            // R$
+            var valorFormatado = valor.toLocaleString('pt-BR', {style:'currency', currency: 'BRL'})
+            var produtoDescFormatado = produtoDesc.toLocaleString('pt-BR', {style:'currency', currency: 'BRL'})
+            var descFormatado = desc.toLocaleString('pt-BR', {style:'currency', currency: 'BRL'})
+            // Exibir informação no HTML
+            titulo = document.getElementById('produto')
+            titulo.innerHTML = `<strong> Calculando desconto de 10% para ${produto}</strong>`
+
+            exibir = document.querySelector(`p#mostrarDesconto`)
+            exibir.innerHTML = (`O preço original era ${valorFormatado}`)
+            exibir.innerHTML +=(`<p>Você acaba de ganhar ${descFormatado} de desconto (-10%).</p>`)
+            exibir.innerHTML +=(`<p>No fim, você vai pagar ${produtoDescFormatado} no produto ${produto}.</p>`)
+        }
+
+    </script>
+</body>
+</html>

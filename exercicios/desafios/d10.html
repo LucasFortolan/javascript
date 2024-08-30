@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajuste salarial</title>
+</head>
+<body>
+    <h1><strong>Resolvendo Bhaskara</strong></h1>
+    <button onclick = "Resolver()">Calcular</button>
+    <h2 id="bhaskara">Considerando uma equação no formato <strong>a</strong>x²+<strong>b</strong>x+<strong>c</strong> = 0, aperte o botão acima para calcular o valor de delta.</h2>
+    <p id="resultado">Clique no botão acima para iniciar.</p>
+    <script>
+        function Resolver()
+        {
+            // Obter valor
+            var a = parseFloat(window.prompt(`Qual é o valor de a?`))
+            var b = parseFloat(window.prompt(`Qual é o valor de b?`))
+            var c = parseFloat(window.prompt(`Qual é o valor de c?`))
+            // Calculo
+            var delta = (b**2 - 4*a*c)
+            // Exibir informação no HTML
+            titulo = document.getElementById('bhaskara')
+            titulo.innerHTML = `<strong>Resolvendo Bhaskara</strong>`
+
+            exibir = document.getElementById('resultado')
+            exibir.innerHTML = (`A equação atual é <strong>${a}x²+ ${b}x + ${c} = 0<strong>`)
+            exibir.innerHTML +=(`<p>O cálculo realizado será <strong>delta = ${b}² - 4 . ${a} . ${c}</strong></p>`)
+            exibir.innerHTML +=(`<p>O valor calculado foi <strong>delta = ${delta}</strong></p>`)
+        }
+
+    </script>
+</body>
+</html>
