@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ano Bissexto</title>
+</head>
+<body>
+    <h1 >Ano Bissexto</h1>
+    <button onclick="calculo()">Verificar</button>
+    <h2 id = "tituloAno"></h2>
+    <p id="paragrafoAno">Informe um ano para saber se ele é bissexto</p>
+    <script>
+        function calculo() {
+            ano = parseInt(window.prompt("Qual é o ano que você quer verificar?"))
+            var retornoAno = ""
+            var cor = ""
+            if (ano % 4 == 0 && (ano % 100 != 0 || ano % 400 == 0)) {
+                retornoAno = "É BISSEXTO ✔"
+                cor = "green"
+            }
+            else {
+                retornoAno = "NÃO É BISSEXTO X"
+                cor = "red"
+            }
+
+            titulo = document.getElementById("tituloAno")
+            titulo.innerHTML = (`Analisando o ano de ${ano}...`)
+
+            paragrafo = document.getElementById("paragrafoAno")
+            paragrafo.innerHTML = (`O ano de ${ano} <span id="cor">${retornoAno}</span>`)
+            spanCor = document.getElementById("cor")
+            spanCor.style.background = `${cor}`;
+        }
+    </script>
+</body>
+</html>

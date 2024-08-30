@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço Mudou</title>
+</head>
+<body>
+    <h1><strong>Preço Mudou</strong></h1>
+    <button onclick = "calculo()">Verificar</button>
+    <h2 id="tituloInforme"> </h2>
+    <p id="exibir">Clique no botão acima para analisar a mudança de preço.</p>
+    <script>
+        function calculo()
+        {
+            // Obter valor
+            var valorAnterior = parseFloat(window.prompt(`Qual era o preço anterior?`))
+            var valorAtual = parseFloat(window.prompt(`Qual é o preço atual?`))
+            // Calculo
+            var diferenca = valorAtual - valorAnterior
+            var diferencaPorc = Math.abs((valorAtual / valorAnterior) - 1) * 100
+            var statusPreco = ""
+            var acaoPreco = ""
+            var retorno3 = ""
+
+            if (diferenca > 0 ) {
+                statusPreco = "mais caro"
+                acaoPreco = "subiu"
+                retorno3 = "cima"
+            }
+            else if (diferenca < 0) {
+                statusPreco = "mais barato"
+                acaoPreco = "abaixou"
+                retorno3 = "baixo"
+            }
+            else {
+                statusPreco = "mesmo valor"
+            }
+            // R$
+            var valorAnteriorFormatado = valorAnterior.toLocaleString('pt-BR', {style:'currency', currency: 'BRL'})
+            var valorAtualFormatado = valorAtual.toLocaleString('pt-BR', {style:'currency', currency: 'BRL'})
+            var diferencaFormatado = Math.abs(diferenca).toLocaleString('pt-BR', {style:'currency', currency: 'BRL'})
+
+            // Exibir informação no HTML
+            titulo = document.getElementById('tituloInforme')
+            titulo.innerHTML = `<strong>Analisando os valores informados</strong>`
+
+            exibir = document.getElementById('exibir')
+            exibir.innerHTML = (`O preço custava ${valorAnteriorFormatado} e agora custa ${valorAtualFormatado}.`)
+            exibir.innerHTML +=(`<p>Hoje o produto está ${statusPreco}.</p>`)
+            exibir.innerHTML +=(`<p>O preço ${acaoPreco} ${diferencaFormatado} em relação ao preço anterior</p>`)
+            exibir.innerHTML +=(`<p>Uma variação de ${diferencaPorc.toFixed(2)}% pra ${retorno3}.</p>`)
+        }
+    </script>
+</body>
+</html>
