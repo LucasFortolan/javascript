@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de Exercício</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <h1>Verificador de Idade</h1>
+    </header>
+    <section>
+        <div id="msg">
+           <p> Ano de Nascimento:
+                <input type="number" name="txtAno" id="txtAno" min="0">
+           </p>
+           <p> Sexo:
+                <!-- o NAME tem que ser o mesmo, senão permite clicar nas duas opções -->
+                <input type="radio" name="radSex" id ="mas" checked>
+                <label for="mas">Masculino</label>
+                <input type="radio" name="radSex" id="fex">
+                <label for="fem">Feminino</label>
+           </p>
+           <p>
+                <input type="button" value="Verificar" onclick="verificar()">
+           </p>
+        </div>
+        <div id="res">
+            Preencha os dados acima para ver o resultado!
+            <!-- será feito pelo JS
+            <img id="foto" src="foto" alt="Foto"> -->
+        </div>
+    </section>
+    <footer>
+        <p>&copy;Lucas Fortolan</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
